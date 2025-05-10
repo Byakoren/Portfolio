@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="index.css" rel="stylesheet">
+    <link rel="icon" type="image/png" href="image/logo.png">
+    <strong><title>Portfolio de Gouez Thomas</title></strong>
+</head>
+
+<body>
+
+
+    <!-- Bouton Hamburger pour le responsive -->
+    <div class="hamburger" onclick="toggleSidebar()">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <!-- Sidebar pour le menu -->
+    <div class="sidebar">
+        <h1><strong>Thomas Gouez</strong></h1>
+
+        <nav>
+            <ul>
+                <li><a href="#typing-text"><i class="fas fa-home"></i> Accueil</a></li>
+                <li><a href="#about"><i class="fas fa-user"></i> A Propos</a></li>
+                <li><a href="#skills"><i class="fas fa-laptop-code"></i> Compétences</a></li>
+                <li><a href="#certifications"><i class="fas fa-certificate"></i> Certifications</a></li>
+                <li><a href="#portfolio"><i class="fas fa-briefcase"></i> Projets</a></li>
+                <li><a href="#testimonials"><i class="fas fa-comments"></i> Témoignages</a></li>
+                <li><a href="#contact"><i class="fas fa-envelope"></i> Contact</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <!-- Contenu principal -->
+    <main>
+                <!-- particles.js container en arrière-plan -->
+        <div id="particles-js"></div>
+
+        <!-- Stats - compteur de particules -->
+        <div class="count-particles">
+            <span class="js-count-particles"></span>
+        </div>
+
+
+            <h1 id="typing-text" class="animated-text"></h1> 
+
+        
+        <!-- Section à propos -->
+        <section id="about">
+            <h2><i class="fas fa-user"></i> À propos de moi</h2>
+            <p>
+                Après plusieurs années à <strong>conduire des trains à grande vitesse</strong> à la SNCF, j’ai choisi de faire dérailler ma carrière pour plonger dans un tout autre univers : <strong>le développement web</strong>.
+                Aujourd’hui en <em>reconversion professionnelle</em>, je poursuis un <strong>BTS SIO option SLAM</strong>, passionné par le code, les technologies modernes et les projets qui ont du sens.
+            </p>
+            <p>
+                Mon parcours atypique m’a appris <span style="color: var(--accent-color); font-weight: bold;">la rigueur</span>, 
+                <span style="color: var(--accent-color); font-weight: bold;">la gestion de situations critiques</span> et 
+                <span style="color: var(--accent-color); font-weight: bold;">le travail en équipe</span> — des qualités que j’apporte maintenant dans le monde du numérique.
+            </p>
+            <p>
+                Curieux, persévérant et animé par un fort esprit logique (merci <em>les jeux vidéo stratégiques</em> 🎮), je me forme activement au 
+                <strong>développement back-end et front-end</strong>, avec une appétence particulière pour <strong>Laravel</strong>, <strong>JavaScript</strong> et <strong>les bases de données</strong>.
+            </p>
+            <p>
+                Ce portfolio est une vitrine de mon évolution, de mes projets, et de ma volonté de construire des solutions 
+                <span style="color: var(--accent-color); font-weight: bold;">utiles</span>, 
+                <span style="color: var(--accent-color); font-weight: bold;">efficaces</span>, et 
+                <span style="color: var(--accent-color); font-weight: bold;">humaines</span>.
+            </p>
+            <p>
+                <em>Si mon profil vous intrigue, n’hésitez pas à me contacter :</em> j’adore discuter tech, data, ou refaire le monde autour d’un bon projet.
+            </p>
+
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="CV_Gouez_Thomas.pdf" target="_blank" class="btn-cv">
+                    <i class="fas fa-file-pdf"></i> Consulter mon CV
+                </a>
+            </div>
+            
+        
+            <div class="parcours-container">
+        
+                <!-- Mon parcours scolaire -->
+                <div class="parcours" id="scolaire">
+                    <h3><i class="fas fa-graduation-cap"></i> Mon parcours scolaire</h3>
+                    <ul>
+                        <li>Brevet de Technicien Supérieur SIO option SLAM
+                            <span class="date">De Septembre 2024 à aujourd'hui - GEFOR Paris</span>
+                        </li>
+                        <li>Certificat Européen de Conducteur de Train
+                            <span class="date">2018 - CPFT Toulouse</span>
+                        </li>
+                        <li>Baccalauréat Professionnel Sécurité Prévention SSIAP1
+                            <span class="date">De 2014 à 2016 - Camas Paris Orly</span>
+                        </li>
+                        <li>Formation d'Agent de Prévention Et de Sécurité (CQP APS & SST)
+                            <span class="date">2014 - Camas Paris Orly</span>
+                        </li>
+                    </ul>
+                </div>
+
+                  <!-- Mon parcours professionnel -->
+                <div class="parcours" id="pro">
+                    <h3><i class="fas fa-user-tie"></i> Mon parcours professionnel</h3>
+                    <ul>
+                        <li>Conducteur de TGV et Gestion de Flotte TGV en Technicentre
+                            <span class="date">Depuis octobre 2017 - SNCF Paris</span>
+                        </li>
+                        <li>Chef de Poste (CDI)
+                            <span class="date">De Juillet 2016 à Septembre 2017 - SGC France</span>
+                        </li>
+                        <li>Agent de sécurité (Alternance)
+                            <span class="date">De Décembre 2015 à Juillet 2016 - SGC France</span>
+                        </li>
+                        <li>Secouriste Bénévole
+                            <span class="date">De Mai 2013 à Juillet 2014 - Croix Rouge Française Paris</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="parcours" id="stage">
+                    <h3><i class="fas fa-briefcase"></i> Stage pendant le BTS</h3>
+                    <ul>
+                        <li>• Manipulation de base de données SQL <br>
+                            • Création de routes, modèles et contrôleurs sur un projet Laraval <br>
+                            • Création de Graphiques pour suivi administratif interne <br>
+                            <span class="date">5 semaines de Février à Mars 2025 Motion4ever Agence digitale</span>
+                        </li>
+                        <li>• Customisation template wordpress <br>
+                            • Ajout de fonctionnalités (page de dons / planning)
+                            <span class="date">5 semaines de Novembre à Décembre 2024 Association Ara39</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Section BTS -->
+        <section id="bts-sio">
+            <h2><i class="fas fa-graduation-cap"></i> Qu'est-ce que le <strong>BTS SIO ? </strong></h2>
+            <p>Je vous propose de présenter en premier lieu ma filière dont je suis affecté. Le Brevet de Technicien Supérieur aux Services Informatiques aux Organisations (<strong>BTS SIO</strong>) s'adresse à ceux qui souhaitent se former en deux ans aux métiers d'administrateur réseau ou de développeur. Pour la suite, l'intégration directe dans le marché du travail ou la poursuite d'études dans le domaine de l'informatique est possible.</p>
+
+            <h3>Le BTS SIO propose deux spécialités :</h3>
+            <div class="bts-options">
+
+                <!-- Option SISR -->
+                <div class="option" id="sisr">
+                    <h3><i class="fas fa-server"></i> Option SISR</h3>
+                    <p>L'option Solution d'infrastructure, systèmes et réseaux forme des professionnels des réseaux et équipements informatiques (installation, maintenance, sécurité). En sortant d'un <strong>BTS SIO SISR</strong>, vous serez capables de gérer et d’administrer le réseau d’une société et d’assurer sa sécurité et sa maintenance.</p>
+                    <p>Les techniciens supérieurs en informatique option <strong>SISR</strong> peuvent accéder aux métiers de :</p>
+                    <ul>
+                        <li>Administrateur systèmes et réseaux</li>
+                        <li>Informaticien support et déploiement</li>
+                        <li>Pilote d'exploitation</li>
+                        <li>Support systèmes et réseaux</li>
+                        <li>Technicien d'infrastructure</li>
+                        <li>Technicien de production</li>
+                        <li>Technicien micro et réseaux</li>
+                    </ul>
+                </div>
+
+                <!-- Option SLAM -->
+                <div class="option" id="slam">
+                    <h3><i class="fas fa-code "></i> Option <strong>SLAM</strong> <span class="chosen-text">👈 (la filière que j'ai choisie)</span></h3>
+                    <p>L'option Solutions logicielles et applications métiers forme des spécialistes des logiciels (rédaction d’un cahier des charges, formulation des besoins et spécifications, développement, intégration au sein de la société).</p>
+                    <p>Les techniciens supérieurs en informatique option <strong>SLAM</strong> sont préparés aux métiers de :</p>
+                    <ul>
+                        <li>Développeur d’applications informatiques</li>
+                        <li>Développeur informatique</li>
+                        <li>Analyste d’applications ou d’études</li>
+                        <li>Analyste programmeur</li>
+                        <li>Programmeur analyste</li>
+                        <li>Programmeur d’applications</li>
+                        <li>Responsable des services applicatifs</li>
+                        <li>Technicien d’études informatiques</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    <!-- Section Compétences -->
+    <section id="skills">
+        <h2><i class="fas fa-laptop-code"></i> Compétences</h2>
+        <div class="skills-list">
+
+            <div class="skill" id="html-skill">
+                <img src="image/HTML.png" alt="HTML" class="skill-icon">
+                <h3>HTML</h3>
+                <p>Maîtrise de la création de structures de pages web claires, sémantiques et optimisées pour le référencement.</p>
+            </div>
+
+            <div class="skill" id="css-skill">
+                <img src="image/CSS.png" alt="CSS" class="skill-icon">
+                <h3>CSS</h3>
+                <p>Compétence en design web moderne, avec des interfaces adaptatives et visuellement attrayantes.</p>
+            </div>
+
+            <div class="skill" id="js-skill">
+                <img src="image/javascript.webp" alt="JavaScript" class="skill-icon">
+                <h3>JavaScript</h3>
+                <p>Interactivité et animations dynamiques pour une expérience utilisateur améliorée.</p>
+            </div>
+
+            <div class="skill" id="python-skill">
+                <img src="image/Python.png" alt="Python" class="skill-icon">
+                <h3>Python</h3>
+                <p>Expertise en développement d'applications et en automatisation.</p>
+            </div>
+
+            <div class="skill" id="sql-skill">
+                <img src="image/Sql.png" alt="SQL" class="skill-icon" >
+                <h3>SQL</h3>
+                <p>Capacité à concevoir et interroger des bases de données robustes pour des applications performantes.</p>
+            </div>
+
+            <div class="skill" id="laravel-skill">
+                <img src="image/Laravel.png" alt="Laravel" class="skill-icon" style="padding-top: 19px; padding-bottom: 15px;">
+                <h3>Laravel</h3>
+                <p>Développement d'applications web sécurisées et performantes avec le framework PHP.</p>
+            </div>
+
+            <div class="skill" id="symfony-skill">
+                <img src="image/Symfony.svg" alt="Symfony" class="skill-icon">
+                <h3>Symfony</h3>
+                <p>Création d'applications web robustes et évolutives avec le framework PHP.</p>
+            </div>
+
+            <div class="skill" id="reactnative-skill">
+                <img src="image/React.png" alt="React Native" class="skill-icon" style="padding-bottom: 15px;">
+                <h3>React Native</h3>
+                <p>Développement d'applications mobiles performantes et réactives.</p>
+            </div> 
+
+            <div class="skill" id="vs_code-skill">
+                <img src="image/VSCode.png" alt="Visual Studio Code" class="skill-icon">
+                <h3>Visual Studio Code</h3>
+                <p>Environnement de développement intégré pour un codage efficace et productif.</p>
+            </div>
+            
+            <div class="skill" id="git-skill">
+                <img src="image/Git.png" alt="Git" class="skill-icon">
+                <h3>Git</h3>
+                <p>Gestion de versions et collaboration efficace sur des projets de développement.</p>
+            </div>
+
+            <div class="skill" id="anglais-skill">
+                <i class="fas fa-globe skill-icon" style="font-size: 70px; padding-top: 15px; padding-bottom: 18px;"></i>
+                <h3>Anglais</h3>
+                <p>Capacité à lire et comprendre la documentation technique en anglais.</p>
+            </div>
+
+            <div class="skill" id="logic-skill">
+                <img src="image/jeu.png" alt="Logique et Jeux Vidéo" class="skill-icon">
+                <h3>Logique & Jeux Vidéo</h3>
+                <p>Excellent raisonnement logique, aiguisé par des années d'expérience dans le gaming stratégique.</p>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- Section Certifications -->
+    <section id="certifications">
+        <h2><i class="fas fa-certificate"></i> Certifications</h2>
+        <p>Voici quelques-unes de mes certifications qui valident mes compétences et mon expertise dans le domaine de la technologie et du développement.</p>
+        
+        <div class="certification-list">
+            <div class="certification" id="python-certification">
+                <img src="image/Codecademy.png" alt="Codecademy" class="certif-icon" style="padding-top: 40px; padding-bottom: 25px; width: 200px">
+                <h3>Certification Python</h3>
+                <p>Approfondissement des bases du langage Python, orienté développement d'applications, automatisation de tâches et manipulation de données.</p>
+                <span class="date">Codecademy - 2024</span>
+            </div>
+            
+            <div class="certification" id="php_mysql-certification">
+                <img src="image/openclassroom.png" alt="OpenClassrooms" class="certif-icon" style="width: 300px;">
+                <h3>Certification PHP & MySQL</h3>
+                <p>Certification en développement web dynamique avec PHP et gestion de bases de données relationnelles MySQL, incluant la sécurisation et l’optimisation des requêtes.</p>
+                <span class="date">OpenClassrooms - 2025</span>
+            </div>
+            
+            <div class="certification" id="html-certification">
+                <img src="image/openclassroom.png" alt="OpenClassrooms" class="certif-icon" style="width: 300px;">
+                <h3>Certification HTML & CSS</h3>
+                <p>Maîtrise de la structuration de contenu web avec HTML5 et de la mise en forme responsive avec CSS3, en respectant les standards d’accessibilité et de performance.</p>
+                <span class="date">OpenClassrooms - 2024</span>
+            </div>
+
+            <div class="certification" id="rgpd-certification">
+                <img src="image/CNIL.png" alt="CNIL" class="certif-icon" style="padding-top: 40px; padding-bottom : 20px; width: 200px;" >
+                <h3>RGPD</h3>
+                <p>Certification sur les principes clés du Règlement Général sur la Protection des Données, sa mise en application et les bonnes pratiques de conformité numérique.</p>
+                <span class="date">CNIL - Septembre 2024</span>
+            </div>
+            
+            <div class="certification" id="anssi-certification">
+                <img src="image/Anssi.png" alt="ANSSI" class="certif-icon" style="width: 120px;">
+                <h3>Certification ANSSI</h3>
+                <p>Initiation aux fondamentaux de la cybersécurité selon les recommandations de l’ANSSI : gestion des risques, sécurité des systèmes d'information et bonnes pratiques numériques.</p>
+                <span class="date">ANSSI - Septembre 2024</span>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Section Projet -->
+    <section id="portfolio">
+        <h2><i class="fas fa-briefcase"></i> Mes Projets</h2>
+        <div class="portfolio-gallery">
+
+            <div class="project">
+                <img src="minecraft.png" alt="Projet 1">
+                <h3>Projet 1</h3>
+                <p>Description rapide du projet.</p>
+            </div>
+
+            <div class="project">
+                <img src="projet2.jpg" alt="Projet 2">
+                <h3>Projet 2</h3>
+                <p>Description rapide du projet.</p>
+            </div>
+
+            <div class="project">
+                <img src="projet3.jpg" alt="Projet 3">
+                <h3>Projet 3</h3>
+                <p>Description rapide du projet.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Section Témoignages -->
+    <section id="testimonials">
+        <h2><i class="fas fa-comments"></i> Témoignages</h2>
+
+        <div class="testimonial">
+            <p>"J'ai jamais vu un gars aussi fort de ma vie, dans absolument tous les domaines c'est un Dieu, j'aimerai être comme lui plus grand."</p>
+            <p><strong>Full</strong></p>
+        </div>
+
+        <div class="testimonial">
+            <p>"J'ai eu 2 mewtwo sur pokémon TCG, c'est pas le sujet my bad, Byako parle trop quand il est fatigué."</p>
+            <p><strong>Lime</strong></p>
+        </div>
+        
+        <div class="testimonial">
+            <p>"Il veut pas m'attendre pour arcane..."</p>
+            <p><strong>LaFraise</strong></p>
+        </div>
+    </section>
+
+        <!-- Section Contact -->
+        <section id="contact">
+            <h2><i class="fas fa-envelope"></i> Contactez-moi</h2>
+            <form action="contact.php" method="post">
+                <label for="name">Nom:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+                
+                <button type="submit">Envoyer</button>
+            </form>
+        </section>
+
+        <!-- Pied de page -->
+        <footer>
+            <p>&copy; 2024 Portfolio de Byakoren. Tous droits réservés.</p>
+        </footer>
+        
+    </main>
+
+    <!-- Scripts de librairie pour particles.js et stats.js -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+    <script src="script.js"></script>
+</body>
+</html>

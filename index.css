@@ -1,0 +1,690 @@
+/* Palette de couleurs. */
+:root {
+    --primary-color: #0f2027; 
+    --secondary-color: #203a43;
+    --tertiary-color: #2c5364;
+    --accent-color: #00c6ff;
+    --text-light: #ffffff;
+    --text-dark: #b0c4de;
+}
+
+/* Custom du text d'intro qui défile. */
+#typing-text h1 {
+    display: block;
+    word-break: break-word;         /* Permet de couper le mot pour éviter le débordement. */
+    white-space: normal;            /* Permet le retour à la ligne. */
+    overflow-wrap: break-word;      /* Permet de gérer le retour à la ligne pour le texte. */
+    width: 100%;                    /* S'assure que l'élément occupe toute la largeur disponible. */
+    text-align: center;             /* Centrer le texte. */
+}
+
+.animated-text {
+    pointer-events: none;
+}
+
+/* Sidebar */
+.sidebar {
+    position: fixed;                                  /* Fixe la sidebar même quand on défile. */
+    top: 0;                                           /* Positionne le haut de la barre latérale au niveau du haut de la fenêtre. */
+    left: 0;                                          /* Positionne la barre latérale à l'extrême gauche de la fenêtre. */
+    width: 250px;                                     /* Définit la largeur de la sidebar. */
+    height: 100vh;                                    /* Définit la hauteur de la sidebar sur toute la fenêtre. */
+    background: var(--primary-color);                 /* Applique la couleur primary-color. */
+    color: var(--text-light);                         /* Applique la couleur de texte text-light. */
+    display: flex;                                    /* Transform en boîte flexible pourle contenu de la sidebar. */
+    flex-direction: column;                           /* Aligne les éléments de haut en bas. */
+    align-items: center;                              /* Centre les éléments. */
+    padding: 80px 1rem 2rem;                          /* Ajoute un espace intérieur : 80px en haut, 1rem à droite et à gauche, 2rem en bas. */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);       /* Ajout d'une ombre sur la droite. */
+    transition: all 0.3s ease;                        /* Ajoute une transition pour les changements de propriété, pour un effet fluide sur 0.3 seconde. */
+    z-index: 1000;                                    /* Définit la priorité d'affichage par rapport aux autres éléments, pour s'assurer qu'elle reste au-dessus. */
+}
+
+/* Styles pour le bouton Hamburger */
+.hamburger {
+    display: none;                          /* Cache le bouton de base (visible pour le responsive). */
+    flex-direction: column;                 /* Aligne les éléments en colonne. */
+    justify-content: space-between;         /* Espace égal entre les barres pour créer le bouton. */
+    width: 30px;                            /* Largeur. */
+    height: 25px;                           /* Hauteur. */
+    cursor: pointer;                        /* Change le curseur au passage de la souris. */
+    position: fixed;                        /* On fixe le bouton. */
+    top: 20px;                              /* Distance entre le haut de la fenêtre et le bouton. */
+    left: 20px;                             /* Distance entre la gauche de la fenêtre et le bouton. */
+    z-index: 1500;                          /* On met le bouton en affichage prioritaire. */
+}
+
+.hamburger div {  
+    width: 100%;                                 /* Les barres prennent toute la largeur définie plus haut. */
+    height: 4px;                                 /* Hauteur de chaque barre du bouton. */
+    background-color: var(--accent-color);       /* Couleur du bouton. */
+    border-radius: 2px;                          /* On arrondit les coins des barres. */
+}
+
+.sidebar h1 {
+    font-size: 1.8rem;                   /* Taille de la police du titre. */
+    margin: 0 0 1rem;                    /* Ajout d'une marge en bas. */
+    text-align: center;                  /* Centre le texte. */
+    color: var(--accent-color);          /* Couleur du titre. */
+}
+
+.sidebar nav ul { 
+    list-style: none;       /* Suppr les puces de la liste pour plus de style. */ 
+    padding: 0;             /* Retire le remplissage par défaut de l'élément. */ 
+    margin: 2rem 0 0;       /* Ajout d'une marge en haut. */ 
+    width: 100%;            /* Prend toute la largeur disponible définie plus haut. */ 
+    text-align: left;       /* Aligne le texte à gauche. */ 
+}
+
+.sidebar nav ul li {
+    margin: 1.5rem 0;       /* ajout d'une marge en haut et en bas. */ 
+    display: flex;          /* Transforme en affichage flexbox. */ 
+    align-items: center;    /* Centre le tout. */ 
+}
+
+.sidebar nav a {
+    color: var(--text-light);                                        /* Couleur du texte. */ 
+    text-decoration: none;                                           /* Supprime le soulignement par défaut des liens. */ 
+    font-weight: bold;                                               /* Met en gras le texte. */ 
+    font-size: 1rem;                                                 /* Taille de la police. */ 
+    display: flex;                                                   /* Affichage en flexbox. */ 
+    align-items: center;                                             /* Centre le tout. */ 
+    gap: 1rem;                                                       /* Ajout d'un espace entre le contenu.*/ 
+    padding: 0.5rem 1rem;                                            /* Ajout d'un padding de 0.5rem en haut et en bas, et de 1rem à gauche et à droite. */ 
+    border-radius: 5px;                                              /* Arrondit les coins. */ 
+    transition: color 0.3s ease, background-color 0.3s ease;         /* Ajout d'une transition lisse pour les changements de couleur et de fond. */ 
+}
+
+.sidebar nav a i {
+    font-size: 1.2rem;                   /* Taille des icônes. */ 
+    color: var(--accent-color);          /* Couleur des icônes. */ 
+    transition: color 0.3s ease;         /* Transition pour le changement de couleur. */ 
+}
+
+.sidebar nav a:hover {
+    color: var(--primary-color);                  /* Couleur du texte au passage de la souris. */ 
+    background-color: var(--tertiary-color);      /* Couleur du fond au passage de la souris. */ 
+    transform: scale(1.15);                       /* Agrandit au passage de la souris. */ 
+}
+
+/* Partie pour faire que le site scroll si on clique sur un lien du menu */
+html {
+    scroll-behavior: smooth;
+}
+
+section, .parcours, .skill, .certification, .project {
+    opacity: 0;                                                         /* Invisible par défaut */
+    transform: translateY(30px);                                        /* Légèrement décalé vers le bas */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;         /* Transition douce */
+}
+
+section.visible, .parcours.visible, .skill.visible, .certification.visible, .project.visible {
+    opacity: 1;                             /* Visible quand la classe 'visible' est présente */
+    /* transform: translateY(0);               Revient à sa position originale */
+}
+
+/* Contenu principal */
+main, section { 
+    position: relative;      /* Définit le positionnement. */ 
+    z-index: 0;              /* Niveau de superposition. */
+}
+
+/* Conteneur particles.js pour l'animation d'arrière-plan dans le main */
+#particles-js {
+    position: absolute; /* Positionné de manière absolue dans le main */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* En arrière-plan pour rester sous le contenu */
+}
+
+main {
+    margin-left: 270px;                                                                       /* Espace à gauche pour ne pas cacher la sidebar. */
+    padding: 2rem;                                                                            /* Ajout d'un padding sur tous les côtés pour espacer le contenu. */
+    background: linear-gradient(135deg, var(--primary-color), var(--tertiary-color));         /* Ajout d'un dégradé de couleur pour le fond. */
+    color: var(--text-light);                                                                 /* Couleur du texte. */
+    position: relative;                                                                       /* Relative pour que #particles-js soit limité à main */
+    margin-left: 270px;                                                                       /* Espace à gauche pour ne pas cacher la sidebar */
+    padding: 2rem;
+    color: var(--text-light);
+    overflow: hidden;                                                                         /* Empêche les débordements d'animation */
+}
+
+body {
+    font-family: Arial, sans-serif;             /* Police du texte. */
+    margin: 0;                                  /* Supprime la marge de la page par défaut.*/
+    padding: 0;                                 /* Suppr le padding par défaut de la page. */
+    color: var(--text-light);                   /* Couleur du texte. */
+    background-color: var(--primary-color);     /* Couleur du background. */
+}
+
+/* Sections */
+section {
+    padding: 4rem 1rem;                                             /* Ajout d'un espace intérieur de 4 en haut et en bas et de 1 à gauche et à droite. */
+    background-color: var(--secondary-color);                       /* Couleur du fond. */
+    border-radius: 8px;                                             /* Arrondit les bordures. */
+    margin: 2rem 0;                                                 /* Ajout d'une marge en haut et en bas seulement. */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);                   /* Ajout d'une ombre. */
+    opacity: 0;                                                     /* Rend la section invisible par défaut. */
+    transform: translateY(30px);                                    /* Décale la section vers le bas. */
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;     /* Ajout d'une transition progressive pour l'apparition et le déplacement. */
+    margin-right: 1rem;
+    margin-left: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+section.visible {
+    opacity: 1;                    /* Rend la section visible lorsqu'elle a la classe 'visible'. */
+    /* transform: translateY(0);      Replace la seciton à sa position d'origine. */
+}
+
+section h2 {
+    color: var(--accent-color);     /* Couleur du titre. */
+    margin-bottom: 1rem;            /* Ajout d'un espace en bas des titres. */
+}
+
+
+/* Conteneur pour les parcours */
+.parcours-container {
+    display: grid;                          /* Utiliser grid au lieu de flex. */
+    grid-template-columns: 1fr 1fr;         /* Crée deux colonnes de même taille. */
+    gap: 2rem;                              /* Ajout d'un espace entre les éléments. */    
+    margin-top: 2rem;                       /* Ajout d'une marge en haut. */    
+}
+
+/* Style commun pour les boîtes de parcours */
+.parcours {
+    padding: 1.5rem;                                 /* Ajout d'un espace intérieur autour du contenu de la box. */
+    background-color: var(--tertiary-color);         /* Couleur du fond. */
+    border-radius: 8px;                              /* Arrondit les coins. */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);    /* Ajout d'une ombre. */ 
+    transition: transform 0.3s, box-shadow 0.3s;     /* Ajout d'une transition pour les transformations et les ombres. */
+    color: var(--text-light);                        /* Couleur du texte.*/ 
+}
+
+#stage {
+    grid-column: 1 / -1;           /* Permet de passer la box à la ligne.*/
+    text-align: center;            /* Centre le texte horizontalement */
+}
+
+/* Centre également les éléments de la liste dans la section stage */
+#stage ul {
+    list-style: none;              /* Enlève les puces de la liste */
+    padding-left: 0;               /* Enlève le padding par défaut de la liste */
+}
+
+
+/* Effet de survol pour les boîtes */
+.parcours:hover {
+    transform: scale(1.05) translateY(-5px);            /* Agrandit la boîte de 5% et la déplace légèrement vers le haut. */
+    background-color: var(--primary-color);             /* Change la couleur de fond lors du survol. */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);       /* Accentue l'ombre lors du survol. */
+}
+
+/* Style des titres */
+.parcours h3 {
+    color: var(--accent-color);     /* Applique la couleur d'accentuation au titre. */
+    margin-bottom: 1rem;            /* Ajoute un espace de 1rem sous le titre. */
+}
+
+/* Style des listes */
+.parcours ul {
+    list-style: none;           /* Supprime les puces par défaut des listes. */
+    padding: 0;                 /* Supprime le rembourrage interne de la liste. */
+    margin: 0;                  /* Supprime la marge externe de la liste. */
+}
+
+/* Style des éléments de liste */
+.parcours li {
+    margin-bottom: 1rem;        /* Ajoute un espace de 1rem entre chaque élément de la liste. */
+}
+
+/* Style des dates */
+.parcours .date {
+    display: block;                 /* Affiche la date sur une ligne distincte. */
+    font-size: 0.9rem;              /* Taille de la police réduite pour la date. */
+    color: var(--accent-color);     /* Applique la couleur d'accentuation à la date. */
+    margin-top: 0.5rem;             /* Ajoute un espace de 0.5rem entre le texte et la date. */
+    margin-left: 1rem;              /* Décaler un petit peu le text sur la droite */
+}
+
+
+/* Styles pour les options du BTS SIO */
+.bts-options {
+    display: flex;                        /* Définit un conteneur flex pour aligner les éléments en ligne. */
+    gap: 2rem;                            /* Ajout d'un espace entre les éléments. */
+    justify-content: space-between;       /* Met un espace égal entre les éléments. */
+    margin-top: 2rem;                     /* Ajout d'un espace au dessus du conteneur. */
+}
+
+.bts-options .option {
+    flex: 1 1 48%;                                  /* Définit une flexibilité pour que chaque option prenne 48% de l'espace disponible. */
+    padding: 1rem;                                  /* Ajoute un espace intérieur de 1rem. */
+    background-color: var(--tertiary-color);        /* Couleur du fond. */
+    border-radius: 8px;                             /* Arrondit les coins. */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);     /* Ajout d'une ombre. */
+    transition: transform 0.3s, box-shadow 0.3s;    /* Ajout d'une transition pour le changement de transformation et de l'ombre. */
+    text-align: left;                               /* Aligne le texte à gauche. */
+}
+
+.bts-options .option h3 {
+    color: var(--accent-color);      /* Couleur du titre. */
+}
+
+/* Style au passage de la souris  */
+.bts-options .option:hover {
+    transform: scale(1.05) translateY(-5px);         /* Aggrandit avec scale et le déplace vers le haut au survol. */
+    background-color: var(--primary-color);          /* Couleur du fond. */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);      /* Ajout d'une ombre. */
+}
+
+/* Section Compétences et Projets */
+.skills-list, .certification-list, .portfolio-gallery {
+    display: flex;                                          /* Utilise le modèfle flebox.*/
+    flex-wrap: wrap;                                        /* Permet de passer à la ligne si l'espace dispo est insuffisant. */
+    gap: 1.5rem;                                            /* Ajout d'un espace entre les éléments. */
+    justify-content: center;                                /* Centre les éléments dans le conteneur. */
+}
+
+.skill, .project {
+    flex: 1 1 calc(30% - 1rem);                                                                 /* Chaque élément occupe 30% de la largeur disponible moins 1rem. */
+    padding: 1rem;                                                                              /* Ajout d'un espace intérieur. */
+    background-color: var(--tertiary-color);                                                    /* Couleur du fond. */
+    border-radius: 8px;                                                                         /* Arrondit les coins. */
+    text-align: center;                                                                         /* Centre le texte. */
+    opacity: 0;                                                                                 /* Rend l'élément invisible par défaut. */
+    transform: translateY(20px);                                                                /* Décale l'élément vers le bas. */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out, background-color 0.3s ease;     /* Transition pour l'opacité, la transformation et la couleur du fond. */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);                                               /* Ajout d'une ombre.*/
+}
+
+.skill.visible, .project.visible {
+    opacity: 1;                      /* On le rend visible si on lui met la classe 'visible'. */
+    /* transform: translateY(0);        Ramène l'élément à sa position initiale. */
+}
+
+/* Style au passage de la souris  */
+.skill:hover, .project:hover {
+    background-color: var(--primary-color);          /* Couleur du fond. */
+    transform: scale(1.05) translateY(-5px);         /* Agrandit et le déplace vers le haut lors du survol. */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);    /* Ajout d'une ombre. */
+}
+
+.skill h3, .project h3 {
+    color: var(--accent-color);      /* Couleur du titre. */
+}
+
+.skill p, .project p {
+    color: var(--text-dark);         /* Couleur du texte. */
+}
+
+.skill-icon, .project img {
+    max-width: 100px;             /* Limite la largeur max de l'image. */
+    max-height: 100px;            /* Limite la hauteur max de l'image. */
+    object-fit: contain;          /* Adapte l'image pour qu'elle rentre dans les dimensions spécifiées sans être déformée. */
+}
+
+/* Styles pour le texte d'introduction animé */
+#intro-text {
+    display: flex;                               /* Centre le contenu avec le modèle flexbox. */
+    justify-content: center;                     /* Centre le contenu horizontalement. */
+    align-items: center;                         /* Centre le contenu verticalement. */
+    padding: 2rem;                               /* Ajout d'un espace intérieur. */
+    background-color: rgba(0, 0, 0, 0);        /* Couleur du fond. */
+    text-align: center;                          /* Centre le texte. */
+    color: var(--text-light);                    /* Couleur du texte. */
+    margin-bottom: 2rem;                         /* Ajout d'une marge en bas. */
+}
+
+.animated-text {
+    font-size: 2.5rem;                                                                               /* Taille de la police.*/
+    font-weight: bold;                                                                               /* Texte en gras. */
+    background: linear-gradient(90deg, var(--accent-color), var(--text-light), var(--accent-color)); /* dégradé de couleur dans le fond. */
+    background-size: 200% 200%;                                                                      /* Double la taille du fond pour créer du mouvement. */
+    color: transparent;                                                                              /* Rend le texte transparent pour affiche le fond. */
+    -webkit-background-clip: text;                                                                   /* Découpe l'arrière-plan en fonction de forme du texte. (pour webkit) */
+    background-clip: text;                                                                           /* Découpe l'arrière-plan en fonction de forme du texte. */
+    animation: gradient-animation 4s ease infinite;                                                  /* Animation continue avec une durée de 4s et une courbe de transition lisse. */
+    justify-content: center;                     /* Centre le contenu horizontalement. */
+    align-items: center;                         /* Centre le contenu verticalement. */
+    padding: 2rem;  
+    text-align: center;                          /* Centre le texte. */
+    margin-bottom: 5rem;                         /* Ajout d'une marge en bas. */
+    margin-top: 4rem;
+}
+
+@keyframes gradient-animation {         /* Définit une animation appelée `gradient-animation`. */
+    0% {                                /* Début de l'animation. */
+        background-position: 0% 50%;    /* La position de départ de l'arrière-plan est à 0% horizontalement et 50% verticalement. */
+    }
+    50% {                               /* Milieu de l'animation. */
+        background-position: 100% 50%;  /* L'arrière-plan se déplace pour atteindre 100% horizontalement et 50% verticalement. */
+    }
+    100% {                              /* Fin de l'animation. */
+        background-position: 0% 50%;    /* L'arrière-plan revient à la position de départ, soit 0% horizontalement et 50% verticalement. */
+    }
+}
+
+/* Animation pour le texte d'introduction */
+.animated-text {
+    font-size: 2.5rem;                                    /* Taille de la police. */
+    font-weight: bold;                                    /* Police en gras. */
+    color: var(--accent-color);                           /* Couleur du texte. */
+    position: relative;                                   /* Définit une position relative pour permettre des positionnements internes. */
+    white-space: nowrap;                                  /* Empêche le texte de passer à la ligne. */
+    overflow: hidden;                                     /* Cache tout le contenu qui dépasse la largeur de l'élément. */
+    padding-right: 5px;                                   /* Ajout d'un espace à droite. */
+}
+
+/* Boutons et liens */
+button, input[type="submit"] {
+    background-color: var(--accent-color);                     /* Couleur du fond. */
+    color: var(--primary-color);                               /* Couleur du texte. */
+    border: none;                                              /* Retire la bordure par défaut. */
+    padding: 0.8rem 1.2rem;                                    /* Ajout d'un espace en haut et bas de 0.8 et droite et gauche de 1.2. */
+    border-radius: 30px;                                       /* Arrondit les coins des boutons. */
+    cursor: pointer;                                           /* Change le curseur en pointeur lorqu'on survole l'élément. */
+    transition: background-color 0.3s ease, color 0.3s ease;   /* Ajout d'une transition fluide pour le changement de couleur et de fond.*/
+}
+
+button:hover, input[type="submit"]:hover {
+    background-color: var(--tertiary-color);     /* Couleur du fond. */
+    color: var(--text-light);                    /* Couleur du texte. */
+}
+
+/* Footer */
+footer {
+    text-align: center;                            /* Centre le texte. */
+    padding: 2rem 1rem;                            /* Ajout d'un espace de 2rem en haut et en bas et de 1rem à droite et gauche. */
+    background-color: var(--primary-color);        /* Couleur du fond. */
+    color: var(--text-light);                      /* Couleur du texte. */
+    font-size: 0.9rem;                             /* Taille de la police. */
+    border-top: 4px solid var(--tertiary-color);   /* Ajout d'une bordure supérieure. d'une autre couleur. */
+    border-radius: 8px;                            /* Arrondit les coins. */
+}
+
+/* Section Certifications */
+#certifications {
+    padding: 4rem 1rem;                                  /* Ajout d'un espace partout. */
+    background-color: var(--secondary-color);            /* Couleur du fond. */
+    border-radius: 8px;                                  /* Arrondit les coins. */
+    color: var(--text-light);                            /* Couleur du texte. */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);        /* Ajout d'une ombre. */
+}
+
+.certification {
+    flex: 1 1 calc(30% - 1rem);                                                              /* Permet à l'élément de s'étendre sur 30% de l'espace moins 1rem. */
+    padding: 1rem;                                                                           /* Ajout d'un espace interne. */
+    background-color: var(--tertiary-color);                                                 /* Couleur du fond. */
+    border-radius: 8px;                                                                      /* Arrondit les coins. */
+    text-align: center;                                                                      /* Centre le texte.*/
+    opacity: 0;                                                                              /* Rend l'élément invisible par défaut. */
+    transform: translateY(20px);                                                             /* Décale l'élément vers le bas. */
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out, background-color 0.3s ease;  /* Ajoute des transitions pour les changements de visibilité, de position et de fond. */
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);                                            /* Ajout d'une ombre. */
+}
+
+.certification.visible {
+    opacity: 1;                        /* Le rend visible avec la classe 'visible'. */
+    /* transform: translateY(0);          Remet l'élément à sa position d'origine. */
+}
+
+.certification:hover {
+    background-color: var(--primary-color);             /* Couleur du fond. */
+    transform: scale(1.05) translateY(-5px);            /* Agrandit légèrement l'élément et le déplace de 5px vers le haut pour un effet de survol. */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.4);       /* Ajout d'une combre. */
+}
+
+.certification h3 {
+    color: var(--accent-color);     /* Couleur du titre. */
+}
+
+.certification p {
+    color: var(--text-dark);     /* Couleur du texte. */
+}
+
+.certification .date {
+    display: block;                 /* Force l'élément à occuper toute la largeur disponible, l'affichant sur une ligne distincte. */
+    font-size: 0.85rem;             /* Taille de la police. */
+    color: var(--accent-color);     /* Couleur du texte. */
+    margin-top: 0.5rem;             /* Ajout d'une marge en haut.*/
+}
+
+
+/* Animation spécifique pour le doigt et le texte choisi */
+.chosen-text {
+    display: inline-block;                               /* Affiche l'élément en ligne tout en permettant d'utiliser les propriétés de taille et de positionnement*/
+    animation: move-up-down 2s ease-in-out infinite;     /* Applique une animation qui fait bouger l'élément de haut en bas, avec une durée de 2 secondes, une accélération/décélération douce et un cycle répété indéfiniment. */
+}
+
+@keyframes move-up-down {               
+    0%, 100% {                          
+        transform: translateY(0);       /* À 0% et 100% de l'animation, l'élément est à sa position initiale*/
+    }
+    50% {                               
+        transform: translateY(-5px);    /* À 50% de l'animation, l'élément est déplacé vers le haut de 5 pixels*/
+    }
+}
+
+.btn-cv {
+    display: inline-block;
+    background-color: var(--accent-color);
+    color: var(--primary-color);
+    font-weight: bold;
+    padding: 0.8rem 1.5rem;
+    border-radius: 30px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.btn-cv:hover {
+    background-color: var(--tertiary-color);
+    color: var(--text-light);
+    transform: scale(1.05);
+}
+
+/* Partie responsive */
+
+/* Pour les écrans de 768px à 1024px */
+@media (max-width: 1024px) {                 /* Applique les styles suivants aux écrans dont la largeur est de 1024 pixels ou moins.*/
+    .sidebar {
+        width: 250px;                        /* Ajuste la largeur de la sidebar. */
+        padding: 80px 1rem 2rem;             /* Définit le remplissage de la sidebar. */
+    main {
+        margin-left: 220px;                  /* Réduit la marge à gauche du contenu principal pour correspondre à la largeur ajustée de la sidebar. */
+    }
+    .skills-list, .certification-list, .portfolio-gallery {
+        flex-direction: column;                                     /* Change la direction des éléments en colonnes. */
+        align-items: center;                                        /* Centre les éléments. */
+    }
+    .skill, .certification, .project {
+        flex: 1 1 80%;                     /* Ajuste la taille des éléments pour qu'ils occupent 80% de la largeur disponible. */
+    }
+    .bts-options {
+        flex-direction: column;           /* Empile les options (slam et sisr) verticalement */
+        gap: 1.5rem;                      /* Ajoute un espace entre les boxes */
+    }
+    .bts-options .option {
+        flex: 1 1 100%;                   /* Prend toute la largeur disponible */
+    }
+    #typing-text {
+        font-size: 2rem;                  /* Réduit la taille de la police */
+        max-width: 95%;                   /* Limite la largeur de l'élément */
+        margin: 0 auto;                   /* Centre l'élément */
+        word-wrap: break-word;            /* Coupe le texte pour éviter le débordement */
+        white-space: normal;              /* Permet au texte de passer à la ligne */
+    }
+    .parcours-container {
+        flex-direction: column; /* Affiche les boîtes en colonne */
+        gap: 1.5rem; /* Ajuste l'espace entre les boîtes */
+    }
+
+    .parcours {
+        flex: 1 1 100%; /* Les boîtes prennent toute la largeur disponible */
+    }
+}
+
+/* Pour les écrans de 480px à 768px */
+@media (max-width: 768px) {              /* Applique les styles suivants aux écrans dont la largeur est de 768 pixels ou moins*/
+    .sidebar {
+        width: 250px;                    /* Ajuste la largeur de la sidebar. */
+        padding: 80px 1rem 2rem;         /* Définit le remplissage de la sidebar. */
+    }
+    #typing-text {
+        font-size: 1.5rem;          /* Réduit la taille de la police */
+        max-width: 90%;             /* Limite encore la largeur de l'élément */
+        margin: 0 auto;             /* Centre l'élément */
+        word-wrap: break-word;      /* Coupe le texte pour éviter le débordement */
+        white-space: normal;        /* Permet au texte de passer à la ligne */
+    }
+    main {
+        margin-left: 190px;     /* Réduit la marge à gauche du contenu principal pour correspondre à la largeur ajustée de la sidebar. */
+    }
+    .sidebar h1 {
+        font-size: 1.5rem;      /* Taille de la police du titre. */
+    }
+    .sidebar nav a {
+        font-size: 0.9rem;      /* Taille de la police des liens. */
+    }
+    .skill, .certification, .project {
+        flex: 1 1 90%;                      /* Ajuste la taille des éléments pour qu'ils occupent 90% de la largeur disponible*/
+    }
+    .animated-text {
+        font-size: 2rem;            /* Taille de la police. */
+    }
+    .bts-options {
+        flex-direction: column;     /* Modifie la disposition des options du BTS pour qu'elles s'affichent verticalement. */
+        gap: 1.5rem;                /* Ajout d'un espace entre les options. */
+    }
+    .bts-options .option {
+        flex: 1 1 100%;             /* Les options prennent 100% de la largeur disponible. */
+    }
+    .parcours-container {
+        flex-direction: column; /* Affiche les boîtes en colonne */
+        gap: 1rem; /* Réduit l'espace entre les boîtes */
+    }
+
+    .parcours {
+        padding: 1rem; /* Réduit le padding pour économiser de l'espace */
+        flex: 1 1 100%; /* Les boîtes prennent toute la largeur */
+    }
+}
+
+/* Pour les écrans de moins de 480px */
+@media (max-width: 480px) {                 /* Applique les styles suivants aux écrans dont la largeur est de 480 pixels ou moins*/
+    .sidebar {
+        width: 220px;                   /* Ajuste la largeur de la sidebar. */
+        padding: 80px 0.3rem 2rem;      /* Définit le remplissage de la sidebar. */
+    }
+    #typing-text {
+        font-size: 1.2rem;          /* Réduit encore plus la taille de la police */
+        max-width: 90%;             /* Assure que l'élément reste à l'intérieur de l'écran */
+        margin: 0 auto;             /* Centre l'élément */
+        word-wrap: break-word;      /* Coupe le texte pour éviter le débordement */
+        white-space: normal;        /* Permet au texte de passer à la ligne */
+    }
+    main {
+        margin-left: 160px;         /* Réduit la marge à gauche du contenu principal pour correspondre à la largeur ajustée de la sidebar. */
+        padding: 1rem;              /* Réduit le remplissage du contenu principal. */
+    }
+    .sidebar h1 {
+        font-size: 1.2rem;          /* Taille de la police du titre. */
+    }
+    .sidebar nav a {
+        font-size: 0.8rem;          /* Taille de la police des liens. */
+    }
+    .skills-list, .certification-list, .portfolio-gallery {
+        flex-direction: column;                                 /* Affiche les éléments de ces sections en colonne. */
+        align-items: center;                                    /* Centre les éléments. */
+    }
+    .skill, .certification, .project {
+        flex: 1 1 100%;                     /* Chaque élément prend 100% de la largeur disponible */
+    }
+    .animated-text {
+        font-size: 1.5rem;          /* Taille de la police.*/
+    }
+    section {
+        padding: 2rem 1rem;         /* Réduit le remplissage des sections pour s'adapter aux petits écrans. */
+    }
+    .bts-options {
+        flex-direction: column;     /* Modifie la disposition des options du BTS pour qu'elles s'affichent verticalement. */
+        gap: 1rem;                  /* Ajout d'un espace entre les options. */
+    }
+    .bts-options .option {
+        flex: 1 1 100%;             /* Les options prennent 100% de la largeur disponible. */
+    }
+    .parcours-container {
+        flex-direction: column; /* Affiche les boîtes en colonne */
+        gap: 0.5rem; /* Espace réduit entre les boîtes */
+    }
+
+    .parcours {
+        padding: 0.8rem; /* Diminue le padding pour un affichage compact */
+        flex: 1 1 100%; /* Les boîtes occupent toute la largeur */
+    }
+
+    .parcours h3 {
+        font-size: 1.2rem; /* Réduit la taille du titre */
+    }
+
+    .parcours .date {
+        font-size: 0.8rem; /* Diminue la taille des dates */
+    }
+}
+
+/* Cette règle s'applique aux écrans dont la largeur est inférieure ou égale à 1024px (tablettes et mobiles) */
+@media (max-width: 1024px) {
+    /* Section navigation */
+    .hamburger {
+        display: flex;                  /* Affiche le bouton hamburger qui était caché en version desktop. */
+    }
+    .sidebar {
+        transform: translateX(-100%);    /* Déplace la sidebar complètement hors de l'écran vers la gauche. */
+        transition: transform 0.3s ease; /* Ajoute une animation fluide de 0.3s lors du déplacement de la sidebar. */
+    }
+    .sidebar.open {
+        transform: translateX(0);        /* Ramène la sidebar à sa position initiale quand elle a la classe 'open'. */
+    }
+    main {
+        margin-left: 0;                 /* Supprime la marge à gauche du contenu principal car la sidebar est cachée. */
+    }
+
+    /* Section mise en page */
+    #about {
+        padding: 2rem 1rem;             /* Réduit les marges intérieures : 2rem haut/bas, 1rem gauche/droite. */
+    }
+    .parcours-container {
+        grid-template-columns: 1fr;      /* Change la grille à une seule colonne au lieu de deux. */
+        gap: 2rem;                       /* Espace de 2rem entre les éléments de la grille. */
+    }
+}
+
+/* Ces règles s'appliquent aux écrans de type tablette (≤ 768px) */
+@media (max-width: 768px) {
+    #about {
+        padding: 1.5rem 0.5rem;         /* Réduit encore les marges intérieures : 1.5rem haut/bas, 0.5rem gauche/droite. */
+    }
+    .parcours-container {
+        gap: 1rem;                      /* Réduit l'espace entre les éléments à 1rem. */
+    }
+    .parcours {
+        padding: 1rem;                  /* Réduit les marges intérieures des boîtes de parcours à 1rem. */
+    }
+}
+
+/* Ces règles s'appliquent aux mobiles (≤ 480px) */
+@media (max-width: 480px) {
+    .parcours-container {
+        gap: 0.5rem;                    /* Réduit encore l'espace entre les éléments à 0.5rem. */
+    }
+    .parcours {
+        padding: 0.8rem;                /* Réduit les marges intérieures des boîtes à 0.8rem. */
+    }
+    /* Ajustements de la taille du texte */
+    .parcours h3 {
+        font-size: 1rem;                /* Réduit la taille des titres à 1rem (16px par défaut). */
+    }
+    .parcours .date {
+        font-size: 0.75rem;             /* Réduit la taille des dates à 0.75rem (12px). */
+    }
+}}
