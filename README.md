@@ -11,6 +11,7 @@ Mettre en valeur les connaissances acquises au cours de mon BTS SIO (option SLAM
 - **HTML5**
 - **CSS3**
 - **JavaScript (vanilla)**
+- **PHP**
 
 ## 🔍 Fonctionnalités principales
 

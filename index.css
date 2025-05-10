@@ -40,6 +40,7 @@
     z-index: 1000;                                    /* Définit la priorité d'affichage par rapport aux autres éléments, pour s'assurer qu'elle reste au-dessus. */
 }
 
+
 /* Styles pour le bouton Hamburger */
 .hamburger {
     display: none;                          /* Cache le bouton de base (visible pour le responsive). */
@@ -482,6 +483,90 @@ footer {
     color: var(--text-light);
     transform: scale(1.05);
 }
+
+.veille-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.veille-item {
+    background-color: var(--tertiary-color);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+    transition: transform 0.3s ease;
+}
+
+.veille-item:hover {
+    transform: scale(1.03);
+    background-color: var(--primary-color);
+}
+
+.veille-item h3 {
+    color: var(--accent-color);
+    margin-bottom: 0.5rem;
+}
+
+.veille-item a {
+    color: var(--accent-color);
+    font-weight: bold;
+    text-decoration: none;
+}
+.veille-item a:hover {
+    text-decoration: underline;
+}
+
+
+#contact form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 500px;
+    margin: auto;
+}
+
+#contact label {
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+}
+
+#contact input[type="text"],
+#contact input[type="email"],
+#contact textarea {
+    width: 100%;
+    padding: 0.7rem;
+    border: none;
+    border-radius: 5px;
+    resize: vertical;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+#contact textarea {
+    width: 100% !important;  /* <-- force la largeur complète */
+    min-height: 150px;
+    padding: 0.7rem;
+    border-radius: 5px;
+    resize: vertical;
+    font-size: 1rem;
+    box-sizing: border-box;
+}
+
+#contact label {
+    font-weight: bold;
+    color: var(--accent-color); /* bleu cyan déjà utilisé */
+    margin-bottom: 0.3rem;
+    display: block;
+}
+
+#contact input:focus,
+#contact textarea:focus {
+    outline: 2px solid var(--accent-color);
+    background-color: #e6faff; /* léger bleu clair */
+}
+
 
 /* Partie responsive */
 

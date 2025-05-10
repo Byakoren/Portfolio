@@ -30,24 +30,28 @@ document.addEventListener('DOMContentLoaded', function () {
         sidebar.classList.toggle('open');                                 // Alterne l'état du menu (ouvert/fermé)
     });
 
-    // Configuration du défilement doux pour la navigation
-    document.querySelectorAll('.sidebar a').forEach(link => {
-        link.addEventListener('click', function (event) {
-            event.preventDefault();                                       // Empêche le comportement par défaut du lien
-            
-            // Extrait l'ID de la section cible du href
-            const targetId = this.getAttribute('href').substring(1);      
-            const targetSection = document.getElementById(targetId);      // Récupère l'élément cible
+document.querySelectorAll('.sidebar a').forEach(link => {
+    link.addEventListener('click', function (event) {
+        const href = this.getAttribute('href');
 
-            // Animation de défilement doux vers la section
+        // Si c'est un lien interne (commence par #), on empêche le comportement par défaut
+        if (href.startsWith('#')) {
+            event.preventDefault();
+
+            const targetId = href.substring(1);
+            const targetSection = document.getElementById(targetId);
+
             if (targetSection) {
                 window.scrollTo({
-                    top: targetSection.offsetTop,                        // Position de la section cible
-                    behavior: 'smooth'                                   // Animation fluide
+                    top: targetSection.offsetTop,
+                    behavior: 'smooth'
                 });
             }
-        });
+        }
+        // Sinon (lien externe), on laisse faire le navigateur
     });
+});
+
 
     // Gestion des clics en dehors du menu
     document.addEventListener('click', (e) => {
@@ -236,23 +240,3 @@ particlesJS("particles-js", {
     },
     "retina_detect": true
 });
-
-// Configure le compteur de particules avec stats.js
-var count_particles, stats, update;
-stats = new Stats();
-stats.setMode(0);
-stats.domElement.style.position = 'absolute';
-stats.domElement.style.left = '0px';
-stats.domElement.style.top = '0px';
-document.body.appendChild(stats.domElement);
-count_particles = document.querySelector('.js-count-particles');
-update = function () {
-    stats.begin();
-    stats.end();
-    if (window.pJSDom[0].pJS.particles && window.pJSDom[0].pJS.particles.array) {
-        count_particles.innerText = window.pJSDom[0].pJS.particles.array.length;
-    }
-    requestAnimationFrame(update);
-};
-requestAnimationFrame(update);
-
