@@ -20,7 +20,6 @@ Mettre en valeur les connaissances acquises au cours de mon BTS SIO (option SLAM
 - Certifications et parcours
 - Galerie de projets
 - Sidebar responsive avec menu animé
-- Formulaire de contact fonctionnel
 
 ## 🚀 Mise en ligne
 
