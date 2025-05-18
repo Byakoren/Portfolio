@@ -567,6 +567,17 @@ footer {
     background-color: #e6faff; /* léger bleu clair */
 }
 
+.social-icon {
+    font-size: 2rem;
+    color: var(--accent-color);
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.social-icon:hover {
+    transform: scale(1.3);
+    color: var(--text-light);
+    cursor: pointer;
+}
 
 /* Partie responsive */
 
