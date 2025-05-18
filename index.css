@@ -320,7 +320,7 @@ section h2 {
     color: var(--text-dark);         /* Couleur du texte. */
 }
 
-.skill-icon, .project img {
+.skill-icon {
     max-width: 100px;             /* Limite la largeur max de l'image. */
     max-height: 100px;            /* Limite la hauteur max de l'image. */
     object-fit: contain;          /* Adapte l'image pour qu'elle rentre dans les dimensions spécifiées sans être déformée. */
@@ -773,3 +773,25 @@ footer {
         font-size: 0.75rem;             /* Réduit la taille des dates à 0.75rem (12px). */
     }
 }}
+
+
+/* Amélioration responsive des sections Certifications et Projets */
+@media (max-width: 1024px) {
+    .certification-list,
+    .portfolio-gallery {
+        flex-direction: column;   /* Force les éléments à s’empiler verticalement */
+        align-items: center;      /* Centre les éléments */
+    }
+
+    .certification,
+    .project {
+        flex: 1 1 90%;            /* Chaque box prend environ 90% de la largeur */
+        max-width: 600px;         /* Limite max pour éviter que ça déborde sur grands mobiles/tablettes */
+    }
+
+    .certification img,
+    .project img {
+        max-width: 100%;          /* Les images prennent la largeur de la box */
+        height: auto;             /* Gardent leurs proportions */
+    }
+}
